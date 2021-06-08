@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Console;
+
 
 @RestController
 @RequestMapping("/user")
@@ -19,16 +21,16 @@ public class UserController {
     private final UserService userService;
 
 
-    @ApiOperation(value = "Get user")
+    @ApiOperation(value = "Check if user exists")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 401, message = "Unauthorised"),
             @ApiResponse(code = 404, message = "Not Found")
     })
-    @RequestMapping(value = "/get", method = RequestMethod.GET, produces = "application/json")
-    public UserDetails getUser(@RequestParam String name) {
+    @RequestMapping(value = "/check", method = RequestMethod.POST, produces = "application/json")
+    public Boolean getUser(@RequestBody UserDTO user) {
 
-        return userService.loadUserByUsername(name);
+        return userService.userExist(user.getEmail());
     }
 
 
@@ -50,7 +52,7 @@ public class UserController {
             @ApiResponse(code = 404, message = "Not Found")
     })
     @RequestMapping(value = "/confirm", method = RequestMethod.POST, produces = "application/json")
-    public String confirmUser(@RequestParam String token) {
+    public String confirmUser(@RequestBody String token) {
         return userService.confirmUser(token); }
 
 }

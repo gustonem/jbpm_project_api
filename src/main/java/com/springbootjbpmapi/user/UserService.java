@@ -46,8 +46,15 @@ public class UserService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
 		final Optional<User> optionalUser = userRepository.findByEmail(email);
-
 		return optionalUser.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User does not exist"));
+	}
+
+	public Boolean userExist(String email) throws UsernameNotFoundException {
+
+		final Optional<User> optionalUser = userRepository.findByEmail(email);
+
+		System.out.println("User with email " + email + (optionalUser.isPresent() ? " already exists." : " does not exist."));
+		return optionalUser.isPresent();
 
 	}
 
