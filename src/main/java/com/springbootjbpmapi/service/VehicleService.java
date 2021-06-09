@@ -27,4 +27,22 @@ public class VehicleService {
 
         return vehicle.getState() == State.REPAIRABLE;
     }
+
+    public Boolean updateStatus(Long vehicleId) {
+
+        final Optional<Vehicle> optionalVehicle = vehicleRepository.findById(vehicleId);
+
+
+        Vehicle vehicle = optionalVehicle.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Vehicle does not exist"));
+
+        if (vehicle.getState() == State.REPAIRABLE) {
+            vehicle.setState(State.REPAIRED);
+        } else {
+            vehicle.setState(State.DISMANTLED);
+        }
+
+        vehicleRepository.save(vehicle);
+
+        return true;
+    }
 }

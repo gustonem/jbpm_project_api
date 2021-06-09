@@ -27,8 +27,21 @@ public class VehicleController {
             @ApiResponse(code = 404, message = "Not Found")
     })
     @RequestMapping(value = "/state", method = RequestMethod.POST, produces = "application/json")
-    public Boolean getUser(@RequestBody Long id) {
+    public Boolean getState(@RequestBody Long id) {
 
         return vehicleService.checkState(id);
+    }
+
+
+    @ApiOperation(value = "Update vehicle state")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 401, message = "Unauthorised"),
+            @ApiResponse(code = 404, message = "Not Found")
+    })
+    @RequestMapping(value = "/update", method = RequestMethod.PUT, produces = "application/json")
+    public Boolean updateStatus(@RequestBody Long id) {
+
+        return vehicleService.updateStatus(id);
     }
 }

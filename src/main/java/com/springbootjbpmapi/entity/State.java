@@ -1,5 +1,5 @@
 package com.springbootjbpmapi.entity;
 
 public enum State {
-    NEW, REPAIRABLE, UNREPAIRABLE,
+    NEW, REPAIRABLE, UNREPAIRABLE, REPAIRED, DISMANTLED
 }
