@@ -1,16 +1,12 @@
 package com.springbootjbpmapi.rest;
 
 import com.springbootjbpmapi.dto.UserDTO;
-import com.springbootjbpmapi.user.UserService;
+import com.springbootjbpmapi.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.Console;
 
 
 @RestController

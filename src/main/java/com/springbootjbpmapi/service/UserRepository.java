@@ -1,4 +1,4 @@
-package com.springbootjbpmapi.user;
+package com.springbootjbpmapi.service;
 
 import com.springbootjbpmapi.entity.User;
 import org.springframework.data.repository.CrudRepository;

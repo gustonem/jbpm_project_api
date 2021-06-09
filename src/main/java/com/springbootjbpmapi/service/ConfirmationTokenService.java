@@ -1,4 +1,4 @@
-package com.springbootjbpmapi.user;
+package com.springbootjbpmapi.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

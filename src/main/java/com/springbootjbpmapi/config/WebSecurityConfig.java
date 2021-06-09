@@ -1,6 +1,6 @@
 package com.springbootjbpmapi.config;
 
-import com.springbootjbpmapi.user.UserService;
+import com.springbootjbpmapi.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.springbootjbpmapi.user;
+package com.springbootjbpmapi.service;
 
 import com.springbootjbpmapi.dto.UserDTO;
 import com.springbootjbpmapi.entity.User;
